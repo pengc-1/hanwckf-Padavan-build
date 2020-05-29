@@ -31,9 +31,10 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev
     - name: Clone source code
       run: |
-        sudo git clone --depth=1 https://github.com/pengc-1/rt-n56u.git -b New3 /opt/rt-n56u
+        sudo git clone --depth=1 https://github.com/trublemaker/rt-n56u.git -b New3 /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
-        sudo ./dl_toolchain.sh
+        ./clean_sources
+        ./build_toolchain_3.4.x
         sudo mkdir -p /opt/images/
     - name: Build Firmware
       env:
@@ -45,7 +46,7 @@ jobs:
         exit 1
         fi
         sudo ./clear_tree
-        sudo ./build_firmware_modify $TNAME
+        fakeroot ./build_firmware_modify $TNAME
         sudo mv -f images/*.trx /opt/images/
     - name : Upload packages
       uses: actions/upload-artifact@master

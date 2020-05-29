@@ -32,7 +32,8 @@ jobs:
     - name: Clone source code
       run: |
         sudo git clone --depth=1 https://github.com/pengc-1/rt-n56u.git -b New3 /opt/rt-n56u
-        cd /opt/rt-n56u/toolchain-mipsel&& ./clean_sources&&./build_toolchain_3.4.x
+        cd /opt/rt-n56u/toolchain-mipsel
+        sudo ./dl_toolchain.sh
         sudo mkdir -p /opt/images/
     - name: Build Firmware
       env:

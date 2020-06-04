@@ -34,7 +34,7 @@ jobs:
         sudo git clone --depth=1 https://github.com/trublemaker/rt-n56u.git -b New3 /opt/rt-n56u
         sudo rm -rf opt/rt-n56u/toolchain-mipsel/
         sudo git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/pd
-        sudo mv -f /opt/pd/toolchain-mipsel opt/rt-n56u
+        sudo mv -f /opt/pd/rt-n56u/toolchain-mipsel opt/rt-n56u
         sudo chmod u+x opt/rt-n56u/toolchain-mipsel/*
         cd opt/rt-n56u/toolchain-mipsel
         sudo ./dl_toolchain.sh
